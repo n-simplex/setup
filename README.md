@@ -28,4 +28,47 @@ This will take absolutely ages but it's going to be worth it as we use all these
 ```
 chsh -s /bin/zsh
 ```
-which changes the main shell to zsh. After this, you'll probably want to restart your machine. When it has started again, open up a terminal and see if it says zsh is the default (if it isn't, it might give a prompt for how to fix this). Then go get yourself `iTerm2`, as it has various features as a terminal that we like (especially the pane-splitting with `CMD-D`).
+which changes the main shell to zsh. After this, you'll probably want to restart your machine. When it has started again, open up a terminal and see if it says zsh is the default (if it isn't, it might give a prompt for how to fix this). Then go for
+```
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+and you should see Oh-My-Zsh being installed.
+
+Then go get yourself `iTerm2`, as it has various features as a terminal that we like (especially the pane-splitting with `CMD-D`). At this point, you may as well as install [MacTex](https://www.tug.org/mactex/) and also Skim, the pdf viewer.
+
+## Windows
+
+First, make sure you have Windows updated to the latest version. Then, you will need to install [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and then install the latest available version of Ubuntu. They now have a fairly good and bug-free set of steps on the link given. At the same time, you may as well get the "Windows Terminal" from the Windows Store and set the default profile to Ubuntu. You now want to download and install the latest version of vcxsrv from [here](https://github.com/ArcticaProject/vcxsrv/releases). Then Vim into your `~/.bashrc` and append
+```
+export DISPLAY=`grep -oP "(?<=nameserver ).+" /etc/resolv.conf`:0.0
+```
+and turn on vcxsrv in the background. Exit and reenter the shell. You can try and see if your GUI is working according to the steps from [here](https://www.youtube.com/watch?v=6_mbd1hvUnE) and hopefully if it doesn't work originally, then the video will give a fix. Now we install *MikTex*, Ubuntu installation instructions of which can be found [here](https://miktex.org/download). It requires a few commands but shouldn't take too long. We can install `zathura` by typing
+```
+sudo apt-get install zathura
+```
+which will act as our pdf viewer. We now also install `zsh` by saying
+```
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+and then restart the terminal. It should now look like zsh. 
+
+## Finishing off both
+
+We now finish both installations off. To finish installing the looks, we write
+```
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+and then open `~/.zshrc` and change `ZSH_THEME` to `"powerlevel10k/powerlevel10k"` (keep the quotes). After exiting out, you're going to want to restart your terminal and configure the theme. To get it to completely work on Windows, you'll want to download the MesloLGS NF font from [here](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) (you can also mess around with the theme in the terminal settings).
+
+Almost done! To set up your Git config, type in
+```
+git config —global user.name “First Last” (keep the quotes)
+git config —global user.email “Email” (keep the quotes)
+```
+with your GitHub details (the email can be found in account settings). Finally, we clone this Git repository in home with
+```
+git clone https://github.com/n-simplex/setup.git ~/
+```
+and then check all the `.vimrc`, `.vim` things are all there. If they are, type `vim .vimrc` to see if your Vim install gives any errors. Hopefully, it shows all the lines correctly and looks at least somewhat colourful. If so, type `:PlugInstall` to see all the plugins install themselves on your computer. This should make everything complete!
+
