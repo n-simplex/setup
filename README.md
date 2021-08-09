@@ -10,7 +10,9 @@ In order to make this work, you're going to need to set up a few things first, d
 
 ## Mac
 
-If you're on a Mac, you're going to want to begin by installing Xcode's Command Line Tools. We aren't really going to be using them directly but occasionally other programs have them as a prerequisite.
+In general, the process is a little simpler for a Mac as it is a Unix system ultimately and so a lot of things naturally run better.
+
+If you're on an iMac, you're going to want to begin by installing Xcode's Command Line Tools. We aren't really going to be using them directly but occasionally other programs have them as a prerequisite.
 
 ```
 xcode-select --install
