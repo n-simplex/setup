@@ -2,6 +2,8 @@
 
 This repository is all about setting up a new system for me or my friends, in particular setting up Vim and the commandline for taking notes or other work. The end product will look something like this:
 
+![A hint of what's to come when this is all done](EndProduct.png)
+
 but with additionally all the extra stuff that comes with UltiSnips. The knowledge required to figure this all out and make the snippet files, understanding how to use Git propery has (unfortunately) taken up many many tens of hours and the hope is that this page will make it easier to get it done quickly first time.
 
 In order to make this work, you're going to need to set up a few things first, depending on your platform.
