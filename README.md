@@ -68,7 +68,7 @@ git config —global user.email “Email” (keep the quotes)
 ```
 with your GitHub details (the email can be found in account settings). Finally, we clone this Git repository in home with
 ```
-git clone https://github.com/n-simplex/setup.git ~/
+git clone https://github.com/n-simplex/setup.git ~/setup
 ```
-and then check all the `.vimrc`, `.vim` things are all there. If they are, type `vim .vimrc` to see if your Vim install gives any errors. Hopefully, it shows all the lines correctly and looks at least somewhat colourful. If so, type `:PlugInstall` to see all the plugins install themselves on your computer. This should make everything complete!
+and then check all the `.vimrc`, `.vim` things are all there. If they are, `mv` or `cp` all the relevant files into the home directory and then type `vim .vimrc` to see if your Vim install gives any errors. Hopefully, it shows all the lines correctly and looks at least somewhat colourful. If so, type `:PlugInstall` to see all the plugins install themselves on your computer. This should make everything complete!
 
