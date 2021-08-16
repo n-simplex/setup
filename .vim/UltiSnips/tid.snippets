@@ -2,13 +2,10 @@ global !p
 
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
-
-def fix_indent(snip):
-	vim.eval('feedkeys("\<c-f>")')
 endglobal
 
 snippet template "Basic template" bA
-author: stanislaw
+author: klaus
 created: `date +%Y%m%d%H%M%S000`
 modified: `date +%Y%m%d%H%M%S000`
 tags: $2
@@ -93,10 +90,16 @@ $1
 $0
 endsnippet
 
-snippet axx "axiom" bA
-@@.axiom
+snippet def "definition" bA
+@@.definition
 $1
 @@
+$0
+endsnippet
+
+snippet env "general environment" bA
+''$1''.
+___
 $0
 endsnippet
 
@@ -138,7 +141,7 @@ snippet iff "iff" Ai
 endsnippet
 
 snippet mk "Math" wA
-\(${1}\)`!p
+\$\$${1}\$\$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 	snip.rv = ' '
 else:
@@ -147,9 +150,10 @@ else:
 endsnippet
 
 snippet dm "Math" wA
-\[
+\$\$
 ${1:${VISUAL}}
-\] $0
+\$\$
+$0
 endsnippet
 
 context "math()"
@@ -221,6 +225,11 @@ endsnippet
 context "math()"
 snippet floor "floor" iA
 \left\lfloor $1 \right\rfloor $0 
+endsnippet
+
+context "math()"
+snippet abs "absolute value" iA
+\left\mid $1 \right\mid $0
 endsnippet
 
 snippet pmat "pmat" iA
@@ -427,7 +436,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp)' "ln" rwA
+snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -463,11 +472,6 @@ endsnippet
 context "math()"
 snippet invs "inverse" iA
 ^{-1}
-endsnippet
-
-context "math()"
-snippet compl "complement" iA
-^{c}
 endsnippet
 
 context "math()"
@@ -515,7 +519,7 @@ snippet NN "n" iA
 endsnippet
 
 snippet PP "probability" iA
-\mathbb{P}
+\mathbf{P}
 endsnippet
 
 snippet Nn "cap" iA
@@ -660,16 +664,17 @@ snippet Omm "Omm" iA
 \Omega
 endsnippet
 
+context "math()"
+snippet prec "preceq" iA
+\preceq
+endsnippet
+
 snippet <! "normal" iA
 \triangleleft 
 endsnippet
 
 snippet cnt "contradiction" iA
-This is a contradiction \textreferencemark.	
-endsnippet
-
-snippet ctp "contraposition" iA
-The result holds due to contraposition.
+\textreferencemark	
 endsnippet
 
 context "math()"
@@ -715,12 +720,4 @@ priority 100
 context "math()"
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
-endsnippet
-
-snippet letw "let omega" iA
-Let $$\Omega \subset \C$$ be open.
-endsnippet
-
-snippet DD "D" iA
-\mathbb{D}
 endsnippet
