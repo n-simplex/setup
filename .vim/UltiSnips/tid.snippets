@@ -234,11 +234,6 @@ snippet floor "floor" iA
 \left\lfloor $1 \right\rfloor $0 
 endsnippet
 
-context "math()"
-snippet abs "absolute value" iA
-\left\mid $1 \right\mid $0
-endsnippet
-
 snippet pmat "pmat" iA
 \begin{pmatrix} $1 \end{pmatrix} $0
 endsnippet
@@ -306,22 +301,42 @@ snippet inp "inner product" iA
 endsnippet
 
 context "math()"
+snippet ssum "set sum" iA
+\sum_{${1:${VISUAL: x}}\in ${2:${VISUAL: S}}} $0
+endsnippet
+
+context "math()"
+snippet adj "adjacency matrix" iA
+\mathbf{A}(G)
+endsnippet
+
+context "math()"
+snippet z2n "cube" iA
+\mathbf{Z}_{2}^{n}
+endsnippet
+
+context "math()"
+snippet zn "cycle" iA
+\mathbf{Z}_{n}
+endsnippet
+
+context "math()"
 snippet bb "bold math" iA
 \mathbf{$1} $0
 endsnippet
 
 context "math()"
-snippet frak "frak math"
+snippet frak "frak math" iA
 \mathfrak{$1} $0
 endsnippet
 
 context "math()"
-snippet mb "blackboard bold math"
+snippet mb "blackboard bold math" iA
 \mathbb{$1} $0
 endsnippet
 
 snippet sum "sum" w
-\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+\sum_{n=${1:1}}^{${2:\infty}} $0
 endsnippet
 
 snippet taylor "taylor" w
@@ -672,6 +687,16 @@ snippet Omm "Omm" iA
 endsnippet
 
 context "math()"
+snippet Chh "Chh" iA
+\Chi
+endsnippet
+
+context "math()"
+snippet chh "chh" iA
+\chi
+endsnippet
+
+context "math()"
 snippet prec "preceq" iA
 \preceq
 endsnippet
@@ -691,7 +716,7 @@ endsnippet
 
 context "math()"
 snippet ttt "text" iA
-\text{$1} $0
+\text{ $1 } $0
 endsnippet
 
 context "math()"
