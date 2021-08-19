@@ -276,7 +276,43 @@ endsnippet
 snippet lra "leftangle rightangle" iA
 \left<${1:${VISUAL}} \right>$0
 endsnippet
-		
+
+priority 1000
+context "math()" 
+snippet facg "factor group" iA
+G/H
+endsnippet
+
+context "math()"
+snippet x-> "text arrow" iA
+\xrightarrow{$1} $0
+endsnippet
+
+context "math()"
+snippet det "determinant" iA
+\text{det}($1)$0
+endsnippet
+
+context "math()"
+snippet tr "trace" iA
+\text{tr}($1)$0
+endsnippet
+
+context "math()"
+snippet tet "text no spaces" iA
+\text{$1} $0
+endsnippet
+
+context "math()"
+snippet img "image" iA
+\text{Im}($1) $0
+endsnippet
+
+context "math()"
+snippet ker "kernel" iA
+\text{Ker}($1) $0
+endsnippet
+
 context "math()"
 snippet dot1 "dot1" iA
 \dot{$1}$0
