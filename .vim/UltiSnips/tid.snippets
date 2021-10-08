@@ -305,7 +305,7 @@ endsnippet
 
 context "math()"
 snippet tet "text no spaces" iA
-\text{$1} $0
+\text{$1}$0
 endsnippet
 
 context "math()"
@@ -314,8 +314,53 @@ snippet img "image" iA
 endsnippet
 
 context "math()"
+snippet ctg "category" iA
+\mathfrak{C}
+endsnippet
+
+context "math()"
+snippet twr "group tower" iA
+G=G_1\supset\ldots \supset G_{m}
+endsnippet
+
+context "math()"
+snippet sup "superset" iA
+\supset $0
+endsnippet
+
+context "math()"
+snippet crc "circ" iA
+\circ $0
+endsnippet
+
+context "math()"
+snippet mph "morphism" iA
+\text{Mor}(${1:${VISUAL: A}}, ${2:${VISUAL: B}}) $0
+endsnippet
+
+context "math()"
+snippet iso "isomorphism" iA
+\cong $0
+endsnippet
+
+context math()
+snippet fmy "family" iA
+\{A_{i}\mid i\in I\} $0
+endsnippet
+
+context "math()"
 snippet ker "kernel" iA
 \text{Ker}($1) $0
+endsnippet
+
+context "math()"
+snippet cfr "continued fractions" iA
+a_0+\frac{1}{a_1+\frac{1}{\ddots+\frac{1}{a_{n}}}}
+endsnippet
+
+context "math()"
+snippet cff "continued fraction" iA
+[a_0; a_1:\ldots :a_{n}]
 endsnippet
 
 context "math()"
@@ -354,7 +399,7 @@ snippet adj "adjacency matrix" iA
 endsnippet
 
 context "math()"
-snippet z2n "cube" iA
+snippet zzn "cube" iA
 \mathbf{Z}_{2}^{n}
 endsnippet
 
@@ -599,6 +644,14 @@ snippet uuu "bigcup" iA
 \bigcup_{${1:i \in ${2: I}}} $0
 endsnippet
 
+snippet duu "disjoint union" iA
+\bigsqcup_{${1:i \in ${2: I}}} $0
+endsnippet
+
+snippet ddu "disjoint union"
+\sqcup $0
+endsnippet
+
 snippet nnn "bigcap" iA
 \bigcap_{${1:i \in ${2: I}}} $0
 endsnippet 
@@ -645,7 +698,7 @@ snippet ddd "delta" iA
 endsnippet
 
 context "math()"
-snippet phi "phi" iA
+snippet phh "phh" iA
 \varphi
 endsnippet
 
@@ -700,7 +753,7 @@ snippet Lmm "Lambda" iA
 endsnippet
 
 context "math()"
-snippet Phi "Phi" iA
+snippet Phh "Phh" iA
 \Phi
 endsnippet
 
