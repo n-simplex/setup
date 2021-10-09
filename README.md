@@ -74,3 +74,8 @@ git clone https://github.com/n-simplex/setup.git ~/setup
 ```
 and then check all the `.vimrc`, `.vim` things are all there. If they are, `mv` or `cp` all the relevant files into the home directory and then type `vim .vimrc` to see if your Vim install gives any errors. Hopefully, it shows all the lines correctly and looks at least somewhat colourful. If so, type `:PlugInstall` to see all the plugins install themselves on your computer. This should make everything complete!
 
+## TO DO
+
+- Add support for a Linux setup
+- Adjust Windows explanation given new Windows 11 WSL 2 features.
+- Add explanation for save.sh, savenotes.sh and .zshrc files.
