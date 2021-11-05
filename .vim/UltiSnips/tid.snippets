@@ -113,7 +113,9 @@ endsnippet
 
 snippet env "general environment" bA
 ''$1''.
-___
+
+---
+
 $0
 endsnippet
 
@@ -124,6 +126,7 @@ $0
 endsnippet
 
 priority 100
+context "math()"
 snippet ... "ldots" iA
 \ldots
 endsnippet
@@ -141,16 +144,18 @@ snippet bbb "bold" A
 ''$1''$0
 endsnippet
 
-snippet => "implies" Ai
+context "math()"
+snippet => "implies" iA
 \implies
 endsnippet
 
-snippet =< "implied by" Ai
+context "math()"
+snippet =< "implied by" iA
 \impliedby
 endsnippet
 
 context "math()"
-snippet iff "iff" Ai
+snippet iff "iff" iA
 \iff
 endsnippet
 
@@ -227,6 +232,7 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '').replace('^', '**').re
 `
 endsnippet
 
+context "math()"
 snippet != "equals" iA
 \neq 
 endsnippet
@@ -241,22 +247,24 @@ snippet floor "floor" iA
 \left\lfloor $1 \right\rfloor $0 
 endsnippet
 
+context "math()"
 snippet pmat "pmat" iA
 \begin{pmatrix} $1 \end{pmatrix} $0
 endsnippet
 
+context "math()"
 snippet bmat "bmat" iA
 \begin{bmatrix} $1 \end{bmatrix} $0
 endsnippet
 
 context "math()"
 snippet () "left( right)" iA
-\left( ${1:${VISUAL}} \right) $0
+\left(${1:${VISUAL}}\right) $0
 endsnippet
 
 context "math()"
 snippet || "left| right|" iA
-\left| ${1:${VISUAL}} \right| $0
+\left|${1:${VISUAL}}\right| $0
 endsnippet
 
 context "math()"
@@ -266,7 +274,7 @@ endsnippet
 
 context "math()"
 snippet <> "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right> $0
+\left<${1:${VISUAL}}\right> $0
 endsnippet
 
 priority 1000
@@ -303,6 +311,11 @@ endsnippet
 context "math()"
 snippet CC "superset" iA
 \supset $0
+endsnippet
+
+context "math()"
+snippet coo "cinfty"
+\mathbb{C}_{\infty}
 endsnippet
 
 context "math()"
@@ -587,7 +600,7 @@ endsnippet
 
 context "math()"
 snippet set "set" wA
-\left\{$1\right\} $0
+\left\\{$1\right\\} $0
 endsnippet
 
 snippet fw "mid" iA
@@ -650,7 +663,17 @@ endsnippet
 
 context "math()"
 snippet OO "open set" iA
-\mathcal{O}
+\mathcal{O} 
+endsnippet
+
+context "math()"
+snippet opl "o plus" iA
+\otimes 
+endsnippet
+
+context "math()"
+snippet Opl "O plus" iA
+\bigotimes_{$(1:i \in ${2: I}}} $0
 endsnippet
 
 context "math()"
@@ -856,7 +879,7 @@ $1
 endsnippet 
 
 snippet cvec "column vector" iA
-\begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
+\begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ ${3:x}_${4:n} \end{pmatrix}
 endsnippet
 
 priority 10
