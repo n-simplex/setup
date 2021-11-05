@@ -156,7 +156,7 @@ endsnippet
 
 snippet mk "Math" wA
 \$\$${1}\$\$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ', ')']:
 	snip.rv = ' '
 else:
 	snip.rv = ''
@@ -521,7 +521,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max)' "ln" rwA
+snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max|dim|inf|sup)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
