@@ -284,7 +284,7 @@ G/H
 endsnippet
 
 context "math()"
-snippet x-> "text arrow" iA
+snippet _> "text arrow" iA
 \xrightarrow{$1} $0
 endsnippet
 
@@ -534,7 +534,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max|dim|inf|sup)' "ln" rwA
+snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max|dim|inf|sup|im)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -668,12 +668,12 @@ endsnippet
 
 context "math()"
 snippet opl "o plus" iA
-\otimes 
+\oplus 
 endsnippet
 
 context "math()"
 snippet Opl "O plus" iA
-\bigotimes_{$(1:i \in ${2: I}}} $0
+\bigoplus_{$(1:i \in ${2: I}}} $0
 endsnippet
 
 context "math()"
