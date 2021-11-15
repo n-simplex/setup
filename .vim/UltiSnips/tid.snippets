@@ -5,7 +5,7 @@ def math():
 endglobal
 
 snippet template "Basic template" bA
-author: klaus
+author: stanislaw
 created: `date +%Y%m%d%H%M%S000`
 modified: `date +%Y%m%d%H%M%S000`
 tags: $2
@@ -376,6 +376,11 @@ endsnippet
 context "math()"
 snippet inp "inner product" iA
 \left<${1:${VISUAL: x}}, ${2:${VISUAL: y}} \right> $0
+endsnippet
+
+context "math()"
+snippet ann "angle" iA
+\measuredangle $0
 endsnippet
 
 context "math()"
