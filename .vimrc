@@ -41,7 +41,8 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
 
-
+setlocal spell
+set spelllang=nl,en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 call plug#end()
 set mouse=nicr
