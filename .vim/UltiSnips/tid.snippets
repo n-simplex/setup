@@ -85,7 +85,9 @@ endsnippet
 
 snippet slv "solution" bA
 @@.solution
+'''
 $1
+'''
 @@
 $0
 endsnippet
@@ -147,11 +149,6 @@ endsnippet
 context "math()"
 snippet => "implies" iA
 \implies
-endsnippet
-
-context "math()"
-snippet =< "implied by" iA
-\impliedby
 endsnippet
 
 context "math()"
@@ -389,7 +386,7 @@ snippet trr "triangle" iA
 endsnippet
 
 context "math()"
-snippet ssum "set sum" iA
+snippet ssu "set sum" iA
 \sum_{${1:${VISUAL: x}}\in ${2:${VISUAL: S}}} $0
 endsnippet
 
@@ -444,8 +441,13 @@ snippet prod "product" iA
 endsnippet
 
 context "math()"
-snippet part "d/dx" iA
+snippet prt "d/dx" iA
 \frac{\partial ${1:V}}{\partial ${2:x}} $0
+endsnippet
+
+context "math()"
+snippet Der "d/dt" iA
+\frac{\text{d} $1}{\text{d} $2} $0
 endsnippet
 
 context "math()"
@@ -544,20 +546,40 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max|dim|inf|sup)' "ln" rwA
+snippet '(?<!\\)(cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max|dim|inf|sup|arg)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
 priority 300
 context "math()"
 snippet dint "integral" wA
-\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
+\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} \text{d}${4:t} $0
 endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|zeta)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
+endsnippet
+
+context "math()"
+snippet snn "sin" iA
+\sin $0
+endsnippet
+
+context "math()"
+snippet iii "int" iA
+\int $0
+endsnippet
+
+context "math()"
+snippet iij "iint" iA
+\iint $0
+endsnippet
+
+context "math()"
+snippet ijj "iiint" iA
+\iiint $0
 endsnippet
 
 priority 100
