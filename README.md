@@ -4,7 +4,7 @@ This repository is all about setting up a new system for me or my friends, in pa
 
 ![A hint of what's to come when this is all done](EndProduct.png)
 
-but with additionally all the extra stuff that comes with UltiSnips. The knowledge required to figure this all out and make the snippet files, understanding how to use Git propery has (unfortunately) taken up many many tens of hours and the hope is that this page will make it easier to get it done quickly first time.
+but with additionally all the extra stuff that comes with UltiSnips. The knowledge required to figure this all out and make the snippet files, understanding how to use Git properly has (unfortunately) taken up many many tens of hours and the hope is that this page will make it easier to get it done quickly first time.
 
 In order to make this work, you're going to need to set up a few things first, depending on your platform.
 
@@ -24,7 +24,7 @@ brew update
 ```
 The last line is probably unnecessary but we do it anyway. Now we're going to want to install a whole bunch of things with brew.
 ```
-brew install vim python git node anaconda zsh
+brew install vim python git node anaconda zsh toilet
 ```
 This will take absolutely ages but it's going to be worth it as we use all these things regularly. We now perform
 ```
@@ -40,15 +40,17 @@ Then go get yourself `iTerm2`, as it has various features as a terminal that we 
 
 ## Windows
 
-First, make sure you have Windows updated to the latest version. Then, you will need to install [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and then install the latest available version of Ubuntu. They now have a fairly good and bug-free set of steps on the link given. At the same time, you may as well get the "Windows Terminal" from the Windows Store and set the default profile to Ubuntu. You now want to download and install the latest version of vcxsrv from [here](https://github.com/ArcticaProject/vcxsrv/releases). Then Vim into your `~/.bashrc` and append
+First, make sure you have Windows updated to the latest version [though maybe stick with 10 for now :)].
+
+Then, you will need to install [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install), which they have now remarkably simplified to a single command and then restart! At the same time, you may as well get the "Windows Terminal" from the Windows Store and set the default profile to Ubuntu. Recall that for strange reasons in Windows you often start, upon opening the terminal, in some strange virtual file location so you should probably ``cd ~`` to begin with. You now want to download and install the latest version of vcxsrv from [here](https://github.com/ArcticaProject/vcxsrv/releases). Then Vim into your `~/.bashrc` and append
 ```
 export DISPLAY=`grep -oP "(?<=nameserver ).+" /etc/resolv.conf`:0.0
 ```
-and turn on vcxsrv in the background. Exit and reenter the shell. You can try and see if your GUI is working according to the steps from [here](https://www.youtube.com/watch?v=6_mbd1hvUnE) and hopefully if it doesn't work originally, then the video will give a fix. Now we install *MikTex*, Ubuntu installation instructions of which can be found [here](https://miktex.org/download). It requires a few commands but shouldn't take too long. We can install `zathura` by typing
+and turn on vcxsrv in the background. Exit and reenter the shell. You can try and see if your GUI is working according to the steps from [here](https://www.youtube.com/watch?v=6_mbd1hvUnE) and hopefully if it doesn't work originally, then the video will give a fix. Now we install *MikTex*, Ubuntu installation instructions of which can be found [here](https://miktex.org/download). It requires a few commands but shouldn't take too long. We can install `zathura` and `toilet` by typing
 ```
-sudo apt-get install zathura
+sudo apt-get install zathura toilet
 ```
-which will act as our pdf viewer. We now also install `zsh` by saying
+which will act as our pdf viewer and a fun way for displaying ASCII text respectively. We now also install `zsh` by saying
 ```
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -72,10 +74,26 @@ with your GitHub details (the email can be found in account settings). Finally, 
 ```
 git clone https://github.com/n-simplex/setup.git ~/setup
 ```
-and then check all the `.vimrc`, `.vim` things are all there. If they are, `mv` or `cp` all the relevant files into the home directory and then type `vim .vimrc` to see if your Vim install gives any errors. Hopefully, it shows all the lines correctly and looks at least somewhat colourful. If so, type `:PlugInstall` to see all the plugins install themselves on your computer. This should make everything complete!
+and then check all the `.vimrc`, `.vim` things are all there. If they are, `mv` or `cp` all the relevant files:
+
+* ``.vimrc`` into the Home directory (NOT THE ``.zshrc`` as this will mess up your OH MY ZSH installation location!)
+* ``cp`` the whole ``.vim`` folder into the Home directory using the ``-R`` flag.
+
+and then type `vim .vimrc` to see if your Vim install gives any errors. Hopefully, it shows all the lines correctly and looks at least somewhat colourful. If so, type `:PlugInstall` to see all the plugins install themselves on your computer.
+
+## TiddlyWiki
+
+The installation guide for TiddlyWiki is given [here](https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html) and should hopefully be uneventful. Historically, it has gone through without issue on Mac but npm has had issues installing on Windows so unfortunately may require some debugging. Having gone through the steps it should be clear if/that the installation works.
+
+Now we want to clone two repositories, one for notes and one for the blog, which I won't link to here as they are private. Do this in some folder dedicated to TiddlyWiki things. Then, in the directory just above the notes and blog directories place the files `savenotes.sh`,`save.sh` and `art.txt`. If you are on Windows (i.e. implicitly Linux) you need to make both of these files executable with the commands
+```
+chmod +x save.sh
+chmod +x savenotes.sh
+```
+and now we need to go into ``.zshrc`` and add the aliases for ``notesave, blogsave, notes`` with the correct directory locations by copying from the appropriate lines in the copy given in setup (in Windows it is not necessary to quote the lines referencing iTerm2).
+
+Try running ``notesave`` as a test and if it works you should be done!
 
 ## TO DO
 
-- Add support for a Linux setup
-- Adjust Windows explanation given new Windows 11 WSL 2 features.
-- Add explanation for save.sh, savenotes.sh and .zshrc files.
+- Add support for a Linux setup (though this is kind of already done)
