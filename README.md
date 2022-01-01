@@ -67,8 +67,8 @@ and then open `~/.zshrc` and change `ZSH_THEME` to `"powerlevel10k/powerlevel10k
 
 Almost done! To set up your Git config, type in
 ```
-git config —global user.name “First Last” (keep the quotes)
-git config —global user.email “Email” (keep the quotes)
+git config -—global user.name "First Last" (keep the quotes)
+git config —-global user.email "Email" (keep the quotes)
 ```
 with your GitHub details (the email can be found in account settings). Finally, we clone this Git repository in home with
 ```
