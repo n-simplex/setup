@@ -350,8 +350,18 @@ snippet cff "continued fraction" iA
 endsnippet
 
 context "math()"
-snippet dot "dot1" iA
+snippet Dot "dot1" iA
 \dot{$1}$0
+endsnippet
+
+context "math()"
+snippet vdd "dot1" iA
+\vdots
+endsnippet
+
+context "math()"
+snippet dii "dot1" iA
+\ddots
 endsnippet
 
 context "math()"
@@ -803,6 +813,11 @@ snippet omm "omega" iA
 endsnippet
 
 context "math()"
+snippet pii "pi" iA
+\pi 
+endsnippet
+
+context "math()"
 snippet Lmm "Lambda" iA
 \Lambda 
 endsnippet
@@ -920,20 +935,26 @@ endsnippet
 
 priority 10
 context "math()"
-snippet "bar" "bar" riA
+snippet "baa" "bar" riA
 \overline{$1}$0
 endsnippet
 
 priority 10
 context "math()"
-snippet "tld" "tilde" riA 
+snippet "tdd" "tilde" riA 
 \tilde{$1}$0
 endsnippet
 
 priority 10
 context "math()"
-snippet "sout" "strikeout" riA
+snippet "soo" "strikeout" riA
 \sout{$1}$0
+endsnippet
+
+priority 10
+context "math()"
+snippet hbb "hat" riA
+\hbar
 endsnippet
 
 priority 100
@@ -944,7 +965,7 @@ endsnippet
 
 priority 10
 context "math()"
-snippet "hat" "hat" riA
+snippet "htt" "hat" riA
 \hat{$1}$0
 endsnippet
 
