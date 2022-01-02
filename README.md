@@ -90,9 +90,12 @@ Now we want to clone two repositories, one for notes and one for the blog, which
 chmod +x save.sh
 chmod +x savenotes.sh
 ```
-and now we need to go into ``.zshrc`` and add the aliases for ``notesave, blogsave, notes`` with the correct directory locations by copying from the appropriate lines in the copy given in setup (in Windows it is not necessary to quote the lines referencing iTerm2).
-
-Try running ``notesave`` as a test and if it works you should be done!
+and now we need to go into ``.zshrc`` and add the aliases for ``notesave, blogsave, notes`` with the correct directory locations by copying from the appropriate lines in the copy given in setup (in Windows it is not necessary to quote the lines referencing iTerm2). Now, if you are in Windows type ``which vim`` which should give you a file path to the vim editor. Then whatever path it gives you, probably ``/usr/bin/vim`` and then append at the bottom of your ``.zshrc`` the lines:
+``
+export EDITOR=(the path given to vim)
+export VISUAL=(the path given to vim)
+``
+No quotes are necessary. Finally, try running ``notesave`` as a test and if it works you should be done!
 
 ## TO DO
 
