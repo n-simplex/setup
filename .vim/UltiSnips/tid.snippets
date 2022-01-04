@@ -951,10 +951,24 @@ snippet "soo" "strikeout" riA
 \sout{$1}$0
 endsnippet
 
-priority 10
 context "math()"
 snippet hrr "planck" iA
 \hbar
+endsnippet
+
+context "math()"
+snippet ktt "ket" iA
+| $1 \rangle $0
+endsnippet
+
+context "math()"
+snippet brr "bra" iA
+\langle $1| $0
+endsnippet
+
+context "math()"
+snippet btt "braket" iA
+\langle $1 | $2 \rangle $0
 endsnippet
 
 priority 100
