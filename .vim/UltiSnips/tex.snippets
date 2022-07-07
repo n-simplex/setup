@@ -317,7 +317,7 @@ snippet == "equals" iA
 &= $1 \\\\
 endsnippet
 
-snippet != "equals" iA
+snippet != "not equal" iA
 \neq 
 endsnippet
 
@@ -344,35 +344,87 @@ snippet () "left( right)" iA
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
-snippet lr "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr( "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr| "left| right|" i
+context "math()"
+snippet || "left| right|" iA
 \left| ${1:${VISUAL}} \right| $0
 endsnippet
 
-snippet lr{ "left\{ right\}"
-\left\\{ ${1:${VISUAL}} \right\\} $0
-endsnippet
-
-snippet lrb "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
-endsnippet
-
-snippet lr[ "left[ right]" i
+context "math()"
+snippet [] "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
-snippet lra "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right>$0
+context "math()"
+snippet <> "left( right)" iA
+\left< ${1:${VISUAL}} \right> $0
 endsnippet
 
-										
+priority 1000
+context "math()"
+snippet facg "factor group" iA
+G/H
+endsnippet
+
+context "math()"
+snippet _> "text arrow" iA
+\xrightarrow{$1} $0
+endsnippet
+
+context "math()"
+snippet tet "text no spaces" iA
+\text{$1}$0
+endsnippet
+
+context "math()"
+snippet ctg "category" iA
+\mathfrak{C}
+endsnippet
+
+context "math()"
+snippet twr "group tower" iA
+G = G1\supset\ldots\supset G_{m}
+endsnippet
+
+context "math()"
+snippet SS "superset" iA
+\supset $0
+endsnippet
+
+context "math()"
+snippet coo "cinfty" iA
+\mathbb{C}_{\infty}
+endsnippet
+
+context "math()"
+snippet crc "circ" iA
+\circ $0
+endsnippet
+
+context "math()"
+snippet mph "morphism" iA
+\text{Mor}(${1:${VISUAL: A}}, ${2:${VISUAL: B}}) $0
+endsnippet
+
+context "math()"
+snippet iso "isomorphism" iA
+\cong $0
+endsnippet
+
+context "math()"
+snippet fmy "family" iA
+\left\{A_{i}\mid i\in I\right\} $0
+endsnippet
+
+context "math()"
+snippet cfr "continued fractions" iA
+a_0+\frac{1}{a_1 + \frac{1}{\ddots+\frac{1}{a_n}}}
+endsnippet
+
+context "math()"
+snippet cff "continued fraction" iA
+[a_0; a_1: \ldots :a_n]
+endsnippet
+
 context "math()"
 snippet dot1 "dot1" iA
 \dot{$1}$0
@@ -399,46 +451,70 @@ snippet inp "inner product" iA
 endsnippet
 
 context "math()"
+snippet ann "angle" iA
+\measuredangle ($1) $0
+endsnippet
+
+context "math()"
+snippet trr "triangle" iA
+\Delta ($1) $0
+endsnippet
+
+context "math()"
+snippet ssu "set sum" iA
+\sum_{$1{1:${VISUAL: x}}\in ${2:${VISUAL: S}}} $0
+endsnippet
+
+context "math()"
+snippet adj "adjacency matrix" iA
+\mathbf{A}\left(${1:${VISUAL: G}}\right) $0
+endsnippet
+
+context "math()"
+snippet zzn "cube" iA
+\mathbf{Z}_2^{${1:${VISUAL: n}}} $0
+endsnippet
+
+context "math()"
 snippet bb "bold math" iA
 \mathbf{$1} $0
 endsnippet
 
 context "math()"
-snippet frak "frak math"
+snippet frak "frak math" iA
 \mathfrak{$1} $0
 endsnippet
 
 context "math()"
-snippet mb "blackboard bold math"
+snippet mb "blackboard bold math" iA
 \mathbb{$1} $0
 endsnippet
 
-context "math()"
-snippet cal "mathcal"
-\mathcal{$1} $0
-endsnippet
-
-snippet sum "sum" w
+snippet sum "sum" iA
 \sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
 endsnippet
 
-snippet taylor "taylor" w
+snippet taylor "taylor" iA
 \sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
 endsnippet
 
-snippet lim "limit" w
+snippet lim "limit" iA
 \lim_{${1:n} \to ${2:\infty}} 
 endsnippet
 
-snippet limsup "limsup" w
+snippet limsup "limsup" iA
 \limsup_{${1:n} \to ${2:\infty}} 
 endsnippet
 
-snippet prod "product" w
+snippet prod "product" iA
 \prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
 endsnippet
 
-snippet part "d/dx" w
+snippet prt "d/dx" iA
+\frac{\partial ${1:V}}{\partial ${2:x}} $0
+endsnippet
+
+snippet der "d/dt" iA
 \frac{\partial ${1:V}}{\partial ${2:x}} $0
 endsnippet
 
@@ -468,7 +544,7 @@ snippet yup "x-tuple" iA
 endsnippet
 
 context "math()"
-snippet tp "to the ... power" iA
+snippet ^^ "to the ... power" iA
 ^{$1}$0
 endsnippet
 
@@ -529,19 +605,14 @@ snippet ** "cdot" iA
 \cdot 
 endsnippet
 
-priority 100
-snippet ^^ "cdot" iA
-^{$0} $1 
-endsnippet
-
 context "math()"
 snippet norm "norm" iA
-\|$1\|$0
+\left\|$1\right\|$0
 endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(sin|cos|tan|sec|cot|csc|ln|log|exp|star|perp)' "ln" rwA
+snippet '(?<!\\)(cos|tan|sec|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -553,14 +624,40 @@ endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
+endsnippet
+
+context "math()"
+snippet snn "sin" iA
+\sin $0
+endsnippet
+
+context "math()"
+snippet iii "int" iA
+\int $0
+endsnippet
+
+context "math()"
+snippet iij "iint" iA
+\iint $0
+endsnippet
+
+context "math()"
+snippet ijj "iiint" iA
+\iiint $0
 endsnippet
 
 priority 100
 context "math()"
 snippet -> "to" iA
 \to 
+endsnippet
+
+priority 1000
+context "math()"
+snippet ttx "to text" iA
+\to^{\text{$1}} 
 endsnippet
 
 priority 200
@@ -580,23 +677,21 @@ snippet invs "inverse" iA
 endsnippet
 
 context "math()"
-snippet compl "complement" iA
-^{c}
-endsnippet
-
-context "math()"
 snippet \\\ "setminus" iA
 \setminus
 endsnippet
 
+context "math()"
 snippet >> ">>" iA
 \gg
 endsnippet
 
+context "math()"
 snippet << "<<" iA
 \ll
 endsnippet
 
+context "math()"
 snippet ~~ "~" iA
 \sim 
 endsnippet
@@ -606,7 +701,8 @@ snippet set "set" wA
 \\{$1\\} $0
 endsnippet
 
-snippet || "mid" iA
+context "math()"
+snippet fw "mid" iA
 \mid 
 endsnippet
 
@@ -615,6 +711,7 @@ snippet cc "subset" Ai
 \subseteq
 endsnippet
 
+context "math()"
 snippet notin "not in " iA
 \not\in 
 endsnippet
@@ -624,44 +721,79 @@ snippet inn "in " iA
 \in 
 endsnippet
 
+context "math()"
 snippet NN "n" iA
 \mathbb{N}
 endsnippet
 
+context "math()"
 snippet PP "probability" iA
 \mathbb{P}
 endsnippet
 
+context "math()"
 snippet Nn "cap" iA
 \cap 
 endsnippet
 
-snippet UU "cup" iA
+context "math()"
+snippet Uu "cup" iA
 \cup 
 endsnippet
 
+context "math()"
 snippet uuu "bigcup" iA
 \bigcup_{${1:i \in ${2: I}}} $0
 endsnippet
 
+context "math()"
+snippet duu "disjoint union" iA
+\bigsqcup_{${1:i \in ${2: I}}} $0
+endsnippet
+
+context "math()"
+snippet ddu "disjoint union" iA
+\sqcup $0
+endsnippet
+
+context "math()"
 snippet nnn "bigcap" iA
 \bigcap_{${1:i \in ${2: I}}} $0
 endsnippet 
 
+context "math()"
 snippet OO "open set" iA
 \mathcal{O}
 endsnippet
 
+context "math()"
+snippet opl "o plus" iA
+\oplus
+endsnippet
+
+context "math()"
+snippet Opl "O plus" iA
+\bigoplus_{$(1:i\in ${2:I}}} $0
+endsnippet
+
+context "math()"
 snippet RR "real" iA
 \mathbb{R}
 endsnippet
 
+context "math()"
 snippet QQ "Q" iA
 \mathbb{Q}
 endsnippet
 
+context "math()"
 snippet ZZ "Z" iA
 \mathbb{Z}
+endsnippet
+
+context "math()"
+snippet CC "C" iA
+\mathbb{C}
 endsnippet
 
 context "math()"
@@ -690,12 +822,12 @@ snippet ddd "delta" iA
 endsnippet
 
 context "math()"
-snippet phi "phi" iA
+snippet phh "phi" iA
 \varphi
 endsnippet
 
 context "math()"
-snippet psi "psi" iA
+snippet pss "psi" iA
 \psi
 endsnippet
 
@@ -725,7 +857,7 @@ snippet muu "mu" iA
 endsnippet
 
 context "math()"
-snippet rho "rho" iA
+snippet rhh "rho" iA
 \rho
 endsnippet
 
@@ -735,8 +867,13 @@ snippet kpp "kappa" iA
 endsnippet
 
 context "math()"
-snippet omg "omega" iA
+snippet omm "omega" iA
 \omega 
+endsnippet
+
+context "math()"
+snippet pii "pii" iA
+\pi
 endsnippet
 
 context "math()"
@@ -745,12 +882,12 @@ snippet Lmm "Lambda" iA
 endsnippet
 
 context "math()"
-snippet Phi "Phi" iA
+snippet Phh "Phi" iA
 \Phi
 endsnippet
 
 context "math()"
-snippet Psi "Psi" iA
+snippet Pss "Psi" iA
 \Psi
 endsnippet
 
@@ -774,21 +911,69 @@ snippet Omm "Omm" iA
 \Omega
 endsnippet
 
+context "math()"
+snippet Chh "Chh" iA
+\Chi
+endsnippet
+
+context "math()"
+snippet chh "chh" iA
+\Chi
+endsnippet
+
+context "math()"
+snippet prec "preceq" iA
+\preceq
+endsnippet
+
+context "math()"
+snippet ioo "iota" iA
+\iota
+endsnippet
+
+context "math()"
+snippet ett "eta" iA
+\eta
+endsnippet
+
+context "math()"
+snippet ztt "zeta" iA
+\zeta
+endsnippet
+
+context "math()"
+snippet nuu "nuu" iA
+\nu
+endsnippet
+
+context "math()"
+snippet tuu "tau" iA
+\tau
+endsnippet
+
+context "math()"
+snippet Sgg "Sigma" iA
+\Sigma
+endsnippet
+
+context "math()"
+snippet Pi "Pi" iA
+\Pi
+endsnippet
+
+context "math()"
 snippet <! "normal" iA
 \triangleleft 
 endsnippet
 
+context "math()"
 snippet cnt "contradiction" iA
-This is a contradiction \textreferencemark.	
-endsnippet
-
-snippet ctp "contraposition" iA
-The result holds due to contraposition.
+\textreferencemark
 endsnippet
 
 context "math()"
 snippet std "set defined" iA
-\{ $1 \; | \; $2\} $0
+\{ $1 \; : \; $2\} $0
 endsnippet
 
 snippet ftt "footnote" iA	
@@ -812,38 +997,99 @@ $1
 \end{cases}
 endsnippet 
 
-snippet SI "SI" iA
-\SI{$1}{$2}
-endsnippet
-
-snippet bigfun "Big function" iA
-\begin{align*}
-$1: $2 &\longrightarrow $3 \\\\
-$4 &\longmapsto $1($4) = $0
-.\end{align*}
-endsnippet
-
 snippet cvec "column vector" iA
 \begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
 endsnippet
 
 priority 10
 context "math()"
-snippet "bar" "bar" riA
+snippet baa "bar" riA
 \overline{$1}$0
 endsnippet
 
-
-priority 100
 context "math()"
-snippet "([a-zA-Z])bar" "bar" riA
-\overline{`!p snip.rv=match.group(1)`}
+snippet tdd "tilde" riA
+\tilde{$1}$0
 endsnippet
 
-priority 10
 context "math()"
-snippet "hat" "hat" riA
-\hat{$1}$0
+snippet soo "strikeout" riA
+\sout{$1}$0
+endsnippet
+
+context "math()"
+snippet add "and" riA
+\wedge $0
+endsnippet
+
+context "math()"
+snippet orr "or" riA
+\vee $0
+endsnippet
+
+context "math()"
+snippet cqq "consequence" riA
+\vDash $0
+endsnippet
+
+context "math()"
+snippet pvv "proves" iA
+\vdash $0
+endsnippet
+
+context "math()"
+snippet ngg "negation" iA
+\neg $0
+endsnippet
+
+context "math()"
+snippet ipp "implication arrow" iA
+\rightarrow $0
+endsnippet
+
+context "math()"
+snippet ctt "contradiction" iA
+\bot $0
+endsnippet
+
+context "math()"
+snippet tpp "truth or top" iA
+\top $0
+endsnippet
+
+context "math()"
+snippet bll "biconditional" iA
+\leftrightarrow $0
+endsnippet
+
+context "math()"
+snippet hrr "planck" iA
+\hbar $0
+endsnippet
+
+context "math()"
+snippet ktt "ket" iA
+| $1 \rangle $0
+endsnippet
+
+context "math()"
+snippet brr "bra" iA
+\langle $1 | $0
+endsnippet
+
+context "math()"
+snippet vtt "vert" iA
+\bigg| $0
+endsnippet
+
+context "math()"
+snippet bkk "braket" iA
+\langle $1 | $2 \rangle $0
+endsnippet
+
+context "math()"
+snippet vtt "vert" iA
+\bigg| $0
 endsnippet
 
 priority 100
@@ -851,15 +1097,4 @@ context "math()"
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
-
-snippet letw "let omega" iA
-Let $\Omega \subset \C$ be open.
-endsnippet
-
-
-snippet DD "D" iA
-\mathbb{D}
-endsnippet
-
 # vim:ft=snippets
-

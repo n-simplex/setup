@@ -249,7 +249,7 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '').replace('^', '**').re
 endsnippet
 
 context "math()"
-snippet != "equals" iA
+snippet != " not equal" iA
 \neq 
 endsnippet
 
@@ -350,18 +350,13 @@ snippet fmy "family" iA
 endsnippet
 
 context "math()"
-snippet ker "kernel" iA
-\text{ker}\left($1\right) $0
-endsnippet
-
-context "math()"
 snippet cfr "continued fractions" iA
-a_0+\frac{1}{a_1+\frac{1}{\ddots+\frac{1}{a_{n}}}}
+a_0+\frac{1}{a_1+\frac{1}{\ddots+\frac{1}{a_n}}}
 endsnippet
 
 context "math()"
 snippet cff "continued fraction" iA
-[a_0; a_1:\ldots :a_{n}]
+[a_0; a_1:\ldots :a_n]
 endsnippet
 
 context "math()"
@@ -416,12 +411,12 @@ endsnippet
 
 context "math()"
 snippet adj "adjacency matrix" iA
-\mathbf{A}\left(${1:$VISUAL: G}}\right) $0
+\mathbf{A}\left(${1:${VISUAL: G}}\right) $0
 endsnippet
 
 context "math()"
 snippet zzn "cube" iA
-\mathbf{Z}_{2}^{${1:$VISUAL: n}}} $0
+\mathbf{Z}_2^{${1:${VISUAL: n}}} $0
 endsnippet
 
 context "math()"
@@ -570,7 +565,7 @@ endsnippet
 
 priority 100
 context "math()"
-snippet '(?<!\\)(cos|tan|sec|cot|csc|ln|log|exp|star|perp|min|max|dim|inf|sup|arg)' "ln" rwA
+snippet '(?<!\\)(cos|tan|sec|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -659,6 +654,7 @@ snippet set "set" wA
 \left\\{$1\right\\} $0
 endsnippet
 
+context "math()"
 snippet fw "mid" iA
 \mid 
 endsnippet
@@ -934,6 +930,11 @@ snippet cnt "contradiction" iA
 endsnippet
 
 context "math()"
+snippet std "set defined" iA
+\{ $1 \; :\; $2\} $0
+endsnippet
+
+context "math()"
 snippet ttt "text" iA
 \text{ $1 } $0
 endsnippet
@@ -955,13 +956,11 @@ snippet "baa" "bar" riA
 \overline{$1}$0
 endsnippet
 
-priority 10
 context "math()"
 snippet "tdd" "tilde" riA 
 \tilde{$1}$0
 endsnippet
 
-priority 10
 context "math()"
 snippet "soo" "strikeout" riA
 \sout{$1}$0
