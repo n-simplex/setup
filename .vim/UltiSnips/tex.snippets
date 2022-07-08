@@ -8,32 +8,22 @@ def fix_indent(snip):
 endglobal
 
 snippet template "Basic template" bA
-
 \documentclass[a4paper]{article}
-\usepackage[margin=2cm]{geometry}
+\usepackage[margin=3cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage[english]{babel}
+\usepackage[usenames, dvipsnames]{xcolor}
 \usepackage{amsmath,amssymb,enumerate,amsthm}
-\usepackage{tcolorbox}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{I. T. Mathews}
+\fancyhead[C]{$1}
+\fancyhead[L]{\thepage}
+
 \title{$1}
 \author{I. T. Mathews}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{solution}[theorem]{Solution}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{axiom}[theorem]{Axiom}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{conjecture}[theorem]{Conjecture}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
 
 % figure support
 \usepackage{import}
@@ -41,21 +31,21 @@ snippet template "Basic template" bA
 \pdfminorversion=7
 \usepackage{pdfpages}
 \usepackage{transparent}
-\definecolor{navy}{RGB}{0, 0, 128}
-\definecolor{liightcyan}{RGB}{225,255,255}
-\definecolor{lred}{RGB}{255,210,210}
-\definecolor{mgreen}{RGB}{102,205,170}
-\definecolor{dgreen}{RGB}{40,150,100}
-\definecolor{dred}{RGB}{80,0,0}
-\definecolor{greyy}{RGB}{60,60,60}
-\definecolor{lgreyy}{RGB}{169,169,169}
-\definecolor{llgreyy}{RGB}{240,240,240}
-\definecolor{lgreen}{RGB}{220,250,240}
-\definecolor{blueviolet}{RGB}{138,43,226}
-\definecolor{medpurp}{RGB}{180,180,219}
 
+\usepackage[framemethod=tikz]{mdframed}
+\mdfsetup{nobreak=true, innertopmargin=\topskip, innerbottommargin=\baselineskip, skipbelow=0}
+\theoremstyle{definition}
+\newmdtheoremenv{definition}{Definition}[section]
+\newmdtheoremenv[tikzsetting = {line width=1pt,dashed,dash pattern=on 4pt off 3pt}]{example}{Example}[section]
+\newmdenv[leftmargin=0.5cm, rightmargin=0.5cm, frametitle=Proof:, topline=false, rightline=false, bottomline=false, linewidth=1pt, innertopmargin=0.0cm]{proofe}
 
-\pdfsuppresswarningpagegroup=1
+\usepackage[parfill]{parskip}
+
+\usepackage{thmtools}
+\declaretheorem[style=plain, thmbox={style=L, bodystyle=\normalfont, leftmargin=0.5cm, rightmargin=0.5cm}, name=Theorem,within=section]{theorem}
+\declaretheorem[style=plain, thmbox={style=L, bodystyle=\normalfont, leftmargin=0.5cm, rightmargin=0.5cm}, name=Lemma,within=section]{lemma}
+\declaretheorem[style=plain, thmbox={style=M, bodystyle=\normalfont, leftmargin=0.5cm, rightmargin=0.5cm}, name=Corollary,within=section]{corollary}
+\declaretheorem[style=plain, thmbox={style=M, bodystyle=\normalfont, leftmargin=0.5cm, rightmargin=0.5cm}, name=Proposition,within=section]{proposition}
 
 \begin{document}
 \maketitle
@@ -76,66 +66,52 @@ snippet vec "vector" A
 endsnippet
 
 snippet exa "example" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.4mm,colframe=dred, colback=lred]
 \begin{example}[$1]
 $2
 \end{example}
-\end{tcolorbox}
 $0
 endsnippet
 
 snippet lma "lemma" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.5mm,colframe=red, colback=lred]
 \begin{lemma}[$1]
 $2
 \end{lemma}
-\end{tcolorbox}
 $0
 endsnippet
 
 snippet prop "proposition" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.4mm,colframe=dgreen, colback=lgreen]
 \begin{proposition}[$1]
 $2
 \end{proposition}
-\end{tcolorbox}
 $0
 endsnippet
 
 snippet cor "corollary" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.4mm, colframe=mgreen, colback=lgreen]
 \begin{corollary}[$1]
 $2
 \end{corollary}
-\end{tcolorbox}
 $0
 endsnippet
 
 snippet thm "theorem" bA
 
-\begin{tcolorbox}[arc=0mm, boxrule=0.7mm,colframe=navy, colback=liightcyan]
 \begin{theorem}[$1]
 $2
 \end{theorem}
-\end{tcolorbox}
 $0
 endsnippet
 
 snippet defi "definition" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.4mm, colframe=lgreyy, colback=llgreyy]
 \begin{definition}[$1]
 $2
 \end{definition}
-\end{tcolorbox}
 $0
 endsnippet
 
 snippet conj "conjecture" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.7mm, colframe=blueviolet, colback=medpurp]
 \begin{conjecture}[$1]
 $2
 \end{conjecture}
-\end{tcolorbox}
 $0
 endsnippet
 
@@ -168,11 +144,9 @@ $0
 endsnippet
 
 snippet axx "axiom" bA
-\begin{tcolorbox}[arc=0mm, boxrule=0.7mm, colframe=greyy, colback=llgreyy]
 \begin{axiom}[$1]
 $2
 \end{axiom}
-\end{tcolorbox}
 $0
 endsnippet
 
