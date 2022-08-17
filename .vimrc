@@ -38,6 +38,9 @@ Plug 'KeitaNakamura/tex-conceal.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'raghur/vim-ghost',{'do': ':GhostInstall'}
+
 let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
 
