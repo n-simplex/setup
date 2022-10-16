@@ -321,7 +321,7 @@ endsnippet
 
 context "math()"
 snippet SS "superset" iA
-\supset $0
+\supseteq $0
 endsnippet
 
 context "math()"
@@ -436,7 +436,7 @@ endsnippet
 
 context "math()"
 snippet sum "sum" iA
-\sum_{n=${1:1}}^{${2:\infty}} $0
+\sum_{${1:i=1}}^{${2:\infty}} $0
 endsnippet
 
 context "math()"
@@ -446,12 +446,7 @@ endsnippet
 
 context "math()"
 snippet lim "limit" iA
-\lim_{${1:n} \to ${2:\infty}} $0 
-endsnippet
-
-context "math()" 
-snippet limsup "limsup" iA
-\limsup_{${1:n} \to ${2:\infty}} $0
+\lim$1_{${2:n} \to ${3:\infty}} $0 
 endsnippet
 
 context "math()"
@@ -563,27 +558,20 @@ snippet norm "norm" iA
 \left\|$1\right\|$0
 endsnippet
 
-priority 100
-context "math()"
-snippet '(?<!\\)(cos|tan|sec|cot|csc|ln|log|exp|star|perp)' "ln" rwA
-\\`!p snip.rv = match.group(1)`
-endsnippet
-
 priority 300
 context "math()"
 snippet dint "integral" wA
 \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} \text{d}${4:t} $0
 endsnippet
 
-priority 200
-context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|zeta)' "ln" rwA
-\\`!p snip.rv = match.group(1)`
-endsnippet
-
 context "math()"
 snippet snn "sin" iA
 \sin $0
+endsnippet
+
+context "math()"
+snippet css "css" iA
+\cos $0
 endsnippet
 
 context "math()"
@@ -625,11 +613,6 @@ snippet !> "mapsto" iA
 endsnippet
 
 context "math()"
-snippet invs "inverse" iA
-^{-1}
-endsnippet
-
-context "math()"
 snippet \\\ "setminus" iA
 \setminus 
 endsnippet
@@ -645,8 +628,18 @@ snippet << "<<" iA
 endsnippet
 
 context "math()"
-snippet ~~ "~" iA
+snippet smm "~" iA
 \sim 
+endsnippet
+
+context "math()"
+snippet hmm "homotopy" iA
+\simeq
+endsnippet
+
+context "math()"
+snippet hrr "relative homotopy" iA
+\stackrel{\partial}{\simeq} $0
 endsnippet
 
 context "math()"
@@ -720,13 +713,23 @@ snippet OO "open set" iA
 endsnippet
 
 context "math()"
-snippet opl "o plus" iA
+snippet opp "o plus" iA
 \oplus 
 endsnippet
 
 context "math()"
-snippet Opl "O plus" iA
+snippet Opp "O plus" iA
 \bigoplus_{$(1:i \in ${2: I}}} $0
+endsnippet
+
+context "math()"
+snippet Ott "O times" iA
+\bigotimes_{$(1:i \in ${2: I}}} $0
+endsnippet
+
+context "math()"
+snippet ott "o times" iA
+\otimes
 endsnippet
 
 context "math()"
