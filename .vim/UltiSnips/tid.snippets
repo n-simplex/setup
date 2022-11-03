@@ -934,7 +934,17 @@ endsnippet
 
 context "math()"
 snippet std "set defined" iA
-\{ $1 \; :\; $2\} $0
+\\{ $1 \; :\; $2\\} $0
+endsnippet
+
+context "math()"
+snippet spp "supremum" iA
+\sup_{${1:n\in\mathbb{N}}} $0
+endsnippet
+
+context "math()"
+snippet imm "infimum" iA
+\inf_{${1:n\in\mathbb{N}}} $0
 endsnippet
 
 context "math()"
