@@ -8,6 +8,8 @@ but with additionally all the extra stuff that comes with UltiSnips. The knowled
 
 In order to make this work, you're going to need to set up a few things first, depending on your platform.
 
+One thing you may as well get done is look up how to remap the caps-lock key for your operating system to ESC, as this is endlessly useful.
+
 ## Mac
 
 In general, the process is a little simpler for a Mac as it is a Unix system ultimately and so a lot of things naturally run better.
@@ -83,14 +85,34 @@ and then type `vim .vimrc` to see if your Vim install gives any errors. Hopefull
 
 ## TiddlyWiki
 
-The installation guide for TiddlyWiki is given [here](https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html) and should hopefully be uneventful. Historically, it has gone through without issue on Mac but npm has had issues installing on Windows so unfortunately may require some debugging. Having gone through the steps it should be clear if/that the installation works.
+The installation guide for TiddlyWiki is given [here](https://tiddlywiki.com/static/Installing%2520TiddlyWiki%2520on%2520Node.js.html) but we now tell you what to do anyway. ~~Historically, it has gone through without issue on Mac but npm has had issues installing on Windows so unfortunately may require some debugging.~~ We now have ``nvm`` which is a godsend!
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+nvm install node
+node -v
+npm -v
+```
+
+This should download and install ``nvm``, the [Node Version Manager](https://github.com/nvm-sh/nvm)! Very useful thing for updating and dealing with all the versions of node pottering about these days. Then type:
+```
+sudo npm install -g tiddlywiki
+tiddlywiki --version
+```
+and that second command should output a healthy-looking number, like 5.2.5.
 
 Now we want to clone two repositories, one for notes and one for the blog, which I won't link to here as they are private. Do this in some folder dedicated to TiddlyWiki things. Then, in the directory just above the notes and blog directories place the files `savenotes.sh`,`save.sh` and `art.txt`. If you are on Windows (i.e. implicitly Linux) you need to make both of these files executable with the commands
 ```
 chmod +x save.sh
 chmod +x savenotes.sh
 ```
-and now we need to go into ``.zshrc`` and add the aliases for ``notesave, blogsave, notes`` with the correct directory locations by copying from the appropriate lines in the copy given in setup (in Windows it is not necessary to quote the lines referencing iTerm2). Now, if you are in Windows type ``which vim`` which should give you a file path to the vim editor. Then whatever path it gives you, probably ``/usr/bin/vim`` and then append at the bottom of your ``.zshrc`` the lines:
+and now we need to go into ``.zshrc`` and add the aliases for ``notesave, blogsave, notes`` with the correct directory locations by copying from the appropriate lines in the copy given in setup (in Windows it is not necessary to quote the lines referencing iTerm2). They should be something like:
+```
+alias blog="tiddlywiki ~/blog-precursor --listen"
+alias blogsave="~/save.sh"
+alias notesave="~/notesave.sh"
+alias notes="tiddlywiki ~/notes --listen"
+```
+Now, if you are in Windows type ``which vim`` which should give you a file path to the vim editor. Then whatever path it gives you, probably ``/usr/bin/vim`` and then append at the bottom of your ``.zshrc`` the lines:
 ``
 export EDITOR=(the path given to vim)
 export VISUAL=(the path given to vim)
@@ -99,4 +121,4 @@ No quotes are necessary. Finally, try running ``notesave`` as a test and if it w
 
 ## TO DO
 
-- Add support for a Linux setup (though this is kind of already done)
+- Add operating specific advice about remapping caps-lock to ESC.
