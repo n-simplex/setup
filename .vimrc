@@ -2,7 +2,7 @@ let maplocalleader = ","
 
 set nocompatible
 
-filetype indent plugin on
+filetype plugin indent on
 
 syntax on
 
@@ -18,6 +18,8 @@ set autoread
 set backspace=indent,eol,start
 set noerrorbells
 set scrolloff=8
+set ts=8
+set expandtab
 
 call plug#begin()
 
@@ -38,8 +40,6 @@ Plug 'KeitaNakamura/tex-conceal.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'raghur/vim-ghost',{'do': ':GhostInstall'}
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
