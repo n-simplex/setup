@@ -1,5 +1,7 @@
 global !p
 
+context "math()r
+
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
@@ -27,6 +29,34 @@ $1
 </div>
 """ """
 $0
+endsnippet
+
+context "math()"
+snippet CD "commutative diagram" bA
+\\begin{CD}
+$1
+\\end{CD}
+$0
+endsnippet
+
+context "math()"
+snippet rrr "right arrow in CD" iA
+@>$1>> $0
+endsnippet
+
+context "math()"
+snippet lrr "left arrow in CD" iA
+@<$1<< $0
+endsnippet
+
+context "math()"
+snippet urr "upwards arrow in CD" iA
+@A$1AA $0
+endsnippet
+
+context "math()"
+snippet drr "downwards arrow in CD" iA
+@V$1VV $0
 endsnippet
 
 context "math()"
