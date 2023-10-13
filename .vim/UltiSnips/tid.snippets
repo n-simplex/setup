@@ -287,7 +287,7 @@ endsnippet
 
 context "math()"
 snippet _> "text arrow" iA
-\xrightarrow[$2]{$1} $0
+\xrightarrow{$1} $0
 endsnippet
 
 context "math()"
@@ -373,6 +373,11 @@ endsnippet
 context "math()"
 snippet wkk "weak convergence" iA
 \rightharpoonup $0
+endsnippet
+
+context "math()"
+snippet bll "bullet" iA
+\bullet $0
 endsnippet
 
 context "math()"
@@ -575,6 +580,16 @@ snippet ijj "iiint" iA
 \iiint $0
 endsnippet
 
+context "math()"
+snippet mnn "monomorphism" iA
+\rightarrowtail $0
+endsnippet
+
+context "math()"
+snippet emm "epimorphism" iA
+\twoheadrightarrow $0
+endsnippet
+
 priority 100
 context "math()"
 snippet -> "to" iA
@@ -740,7 +755,12 @@ endsnippet
 
 context "math()"
 snippet ott "o times" iA
-\otimes
+\otimes $0
+endsnippet
+
+context "math()"
+snippet tnn "tensor product" iA
+\otimes_R $0
 endsnippet
 
 context "math()"
@@ -1028,11 +1048,6 @@ endsnippet
 context "math()"
 snippet tpp "truth or top" iA
 \top $0
-endsnippet
-
-context "math()"
-snippet bll "biconditional" iA
-\leftrightarrow $0
 endsnippet
 
 context "math()"
