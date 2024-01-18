@@ -47,6 +47,7 @@ let g:airline_theme='deus'
 setlocal spell
 set spelllang=en_gb
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+map ,dg :!~/Documents/TiddlyNode/diagram.sh<CR>
 call plug#end()
 set mouse=nicr
 
