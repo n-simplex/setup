@@ -109,7 +109,7 @@ and now we need to go into ``.zshrc`` and add the aliases for ``notesave, blogsa
 ```
 alias blog="tiddlywiki ~/blog-precursor --listen"
 alias blogsave="~/save.sh"
-alias notesave="~/notesave.sh"
+alias notesave="~/savenotes.sh"
 alias notes="tiddlywiki ~/notes --listen"
 ```
 Now, if you are in Windows type ``which vim`` which should give you a file path to the vim editor. Then whatever path it gives you, probably ``/usr/bin/vim`` and then append at the bottom of your ``.zshrc`` the lines:
