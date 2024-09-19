@@ -32,9 +32,8 @@ endsnippet
 context "math()"
 snippet CD "commutative diagram" bA
 \\begin{CD}
-$1
-\\end{CD}
 $0
+\\end{CD}
 endsnippet
 
 context "math()"
@@ -173,11 +172,6 @@ snippet ... "ldots" iA
 \ldots
 endsnippet
 
-snippet fig "Figure environment" b
-[img[$2|$1]]
-$0
-endsnippet
-
 snippet itt "italics" A
 //$1//$0
 endsnippet
@@ -251,7 +245,6 @@ snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
 
-
 snippet sympy "sympyblock " w
 sympy $1 sympy$0
 endsnippet
@@ -286,11 +279,6 @@ endsnippet
 context "math()"
 snippet pmat "pmat" iA
 \begin{pmatrix} $1 \end{pmatrix} $0
-endsnippet
-
-context "math()"
-snippet bmat "bmat" iA
-\begin{bmatrix} $1 \end{bmatrix} $0
 endsnippet
 
 context "math()"
@@ -329,38 +317,13 @@ snippet SS "superset" iA
 endsnippet
 
 context "math()"
-snippet coo "cinfty"
-\mathbb{C}_{\infty}
-endsnippet
-
-context "math()"
 snippet crr "circ" iA
 \circ $0
 endsnippet
 
 context "math()"
-snippet mph "morphism" iA
-\text{Mor}(${1:${VISUAL: A}}, ${2:${VISUAL: B}}) $0
-endsnippet
-
-context "math()"
 snippet iso "isomorphism" iA
 \cong $0
-endsnippet
-
-context math()
-snippet fmy "family" iA
-\left\{${1:${VISUAL: A}}_{i}\,\mid\, i\in I\right\} $0
-endsnippet
-
-context "math()"
-snippet cfr "continued fractions" iA
-a_0+\frac{1}{a_1+\frac{1}{\ddots+\frac{1}{a_n}}}
-endsnippet
-
-context "math()"
-snippet cff "continued fraction" iA
-[a_0; a_1:\ldots :a_n]
 endsnippet
 
 context "math()"
@@ -379,26 +342,6 @@ snippet dii "dot1" iA
 endsnippet
 
 context "math()"
-snippet doT "dot2" iA
-\ddot{$1}$0
-endsnippet
-
-context "math()"
-snippet dOT "dot3" iA
-\dddot{$1}$0
-endsnippet
-
-context "math()"
-snippet DOT "dot4" iA
-\ddddot{$1}$0
-endsnippet
-
-context "math()"
-snippet inp "inner product" iA
-\left<${1:${VISUAL: x}}, ${2:${VISUAL: y}} \right> $0
-endsnippet
-
-context "math()"
 snippet wkk "weak convergence" iA
 \rightharpoonup $0
 endsnippet
@@ -409,28 +352,8 @@ snippet bll "bullet" iA
 endsnippet
 
 context "math()"
-snippet ann "angle" iA
-\measuredangle ($1) $0
-endsnippet
-
-context "math()"
-snippet trr "triangle" iA
-\Delta \left($1\right) $0
-endsnippet
-
-context "math()"
 snippet ssu "set sum" iA
 \sum_{${1:${VISUAL: x}}\in ${2:${VISUAL: S}}} $0
-endsnippet
-
-context "math()"
-snippet adj "adjacency matrix" iA
-\mathbf{A}\left(${1:${VISUAL: G}}\right) $0
-endsnippet
-
-context "math()"
-snippet zzn "cube" iA
-\mathbf{Z}_2^{${1:${VISUAL: n}}} $0
 endsnippet
 
 context "math()"
@@ -454,11 +377,6 @@ snippet sum "sum" iA
 endsnippet
 
 context "math()"
-snippet taylor "taylor" iA
-\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
-endsnippet
-
-context "math()"
 snippet ltt "limit" iA
 \lim$1_{${2:n} \to ${3:\infty}}$0 
 endsnippet
@@ -469,17 +387,12 @@ snippet prod "product" iA
 endsnippet
 
 context "math()"
-snippet prt "d/dx" iA
-\frac{\partial ${1:V}}{\partial ${2:x}}$0
+snippet dff "differential" iA
+\partial^{${1:M}}$0
 endsnippet
 
 context "math()"
-snippet Der "d/dt" iA
-\frac{\text{d} $1}{\text{d} $2}$0
-endsnippet
-
-context "math()"
-snippet sr "\sqrt{}" iA
+snippet srr "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}}$0
 endsnippet
 
@@ -489,18 +402,8 @@ snippet sqq "^2" iA
 endsnippet
 
 context "math()"
-snippet cb "^3" iA
+snippet cbb "^3" iA
 ^3
-endsnippet
-
-context "math()"
-snippet tup "x-tuple" iA
-(x_1,\ldot)
-endsnippet
-
-context "math()" 
-snippet yup "x-tuple" iA
-(x_1,\ldots, x_n)
 endsnippet
 
 context "math()"
@@ -553,7 +456,7 @@ snippet lll "l" iA
 endsnippet
 
 context "math()"
-snippet nabl "nabla" iA
+snippet nbb "nabla" iA
 \nabla 
 endsnippet
 
@@ -570,11 +473,6 @@ endsnippet
 context "math()"
 snippet norm "norm" iA
 \left\|$1\right\|$0
-endsnippet
-
-context "math()"
-snippet pnn "p norm" iA
-\left\|$1\right\|_{${2:p}}$0
 endsnippet
 
 priority 300
@@ -624,12 +522,6 @@ snippet -> "to" iA
 \to 
 endsnippet
 
-priority 1000
-context "math()"
-snippet ttx "to text" iA
-\to^{\text{$1}} $0
-endsnippet
-
 priority 200
 context "math()"
 snippet <-> "leftrightarrow" iA
@@ -664,6 +556,11 @@ endsnippet
 context "math()"
 snippet !> "mapsto" iA
 \mapsto 
+endsnippet
+
+context "math()"
+snippet ivv "inverse" iA
+^{-1}
 endsnippet
 
 context "math()"
@@ -702,11 +599,6 @@ snippet set "set" wA
 endsnippet
 
 context "math()"
-snippet fw "mid" iA
-\,\mid\, 
-endsnippet
-
-context "math()"
 snippet cc "subset" Ai
 \subseteq 
 endsnippet
@@ -722,7 +614,7 @@ snippet inn "in " iA
 endsnippet
 
 context "math()"
-snippet NN "n" iA
+snippet NN "natural numbers" iA
 \mathbb{N}
 endsnippet
 
@@ -753,18 +645,13 @@ endsnippet
 
 context "math()"
 snippet ddu "disjoint union"
-\sqcup
+\sqcup $0
 endsnippet
 
 context "math()"
 snippet nnn "bigcap" iA
 \bigcap_{${1:i \in ${2: I}}} $0
 endsnippet 
-
-context "math()"
-snippet OO "open set" iA
-\mathcal{O} 
-endsnippet
 
 context "math()"
 snippet opp "o plus" iA
@@ -984,11 +871,6 @@ endsnippet
 context "math()"
 snippet <! "normal" iA
 \trianglelefteq
-endsnippet
-
-context "math()"
-snippet cnt "contradiction" iA
-\textreferencemark 	
 endsnippet
 
 context "math()"
